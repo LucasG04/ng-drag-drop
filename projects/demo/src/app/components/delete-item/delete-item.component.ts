@@ -37,20 +37,21 @@ export class DeleteItemComponent {
   dragTimer?: Subscription;
 
   constructor() {
-    this.ngDragDropService.onDragStart.subscribe(() => {
-      this.dragTimer = timer(0, 1000).pipe(take(6), map((v) => 5 - v), tap(v => this.countdown = v)).subscribe({
+    this.ngDragDropService.onDragEnd.subscribe(() => {
+      this.deleteScope = '';
+      this.dragTimer?.unsubscribe();
+      this.countdown = undefined;
+    });
+  }
+
+  dragStart() {
+    this.dragTimer = timer(0, 1000).pipe(take(6), map((v) => 5 - v), tap(v => this.countdown = v)).subscribe({
         complete: () => {
           this.deleteScope = 'delete';
           this.dragTimer = undefined;
           this.countdown = undefined;
         }
       });
-    });
-    this.ngDragDropService.onDragEnd.subscribe(() => {
-      this.deleteScope = '';
-      this.dragTimer?.unsubscribe();
-      this.countdown = undefined;
-    });
   }
 
   onDeleteDrop(e: DropEvent) {

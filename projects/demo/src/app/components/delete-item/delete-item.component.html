@@ -9,7 +9,7 @@
         <div class="card-block scroll-list">
           <ul class="list-group">
             @for (item of deleteItems; track item) {
-              <li draggable [dragClass]="'active'" [dragScope]="'delete'" [dragData]="item" class="list-group-item">
+              <li draggable [dragClass]="'active'" [dragScope]="'delete'" [dragData]="item" (onDragStart)="dragStart()" class="list-group-item">
                 {{item.name}}
               </li>
             }
