@@ -1,3 +1,6 @@
+## 6.0.3 (2025-09-25)
+- Adds missing `allowDrop` validation on drag start in `droppable`
+
 ## 6.0.2 (2025-09-25)
 - Handle changes to `allowDrop` in `droppable` when `dropScope` changes while dragging
 

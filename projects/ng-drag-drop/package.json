@@ -1,6 +1,6 @@
 {
   "name": "@lucasg04/ng-drag-drop",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "Drag & Drop for Angular - based on HTML5 with no external dependencies.",
   "repository": {
     "type": "git",
